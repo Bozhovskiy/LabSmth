@@ -1,0 +1,39 @@
+@import '../../../styles/variables';
+
+.hobbies-block {
+  margin-top: 40px;
+}
+
+.hobbies {
+  text-transform: uppercase;
+  color: $primary-color;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.hobbies-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.block-arrow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.hobby-list {
+  padding-right: 5px;
+}
+
+.hobby {
+  text-transform: uppercase;
+  color: $secondary-color;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.hobby-arrow {
+  transform: translateY(7px);
+}

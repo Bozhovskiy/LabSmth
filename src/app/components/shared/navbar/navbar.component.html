@@ -1,0 +1,27 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a [routerLink]="['/']">Angular CV</a>
+  </div>
+  <div class="navbar-menu">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/forms']" routerLinkActive="active">Forms Demo</a>
+      </li>
+      <li class="nav-item" *ngIf="authService.isAdmin()">
+        <a [routerLink]="['/admin']" routerLinkActive="active">Admin</a>
+      </li>
+      <li class="nav-item" *ngIf="!authService.isLoggedIn()">
+        <a [routerLink]="['/login']" routerLinkActive="active">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="authService.isLoggedIn()">
+        <a [routerLink]="['/profile']" routerLinkActive="active">Profile</a>
+      </li>
+      <li class="nav-item" *ngIf="authService.isLoggedIn()">
+        <a href="javascript:void(0)" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,119 @@
+@import '../../../styles/variables';
+
+.header {
+  display: flex;
+  flex-direction: row;
+}
+
+.red-block {
+  background-color: $primary-color;
+  height: 220px;
+  margin-bottom: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.john-parker-block {
+  background-color: $secondary-color;
+  padding: 40px 25px 20px 45px;
+  width: 200px;
+}
+
+.john {
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  color: $white;
+  font-weight: 400;
+  margin: 0;
+}
+
+.parker {
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  color: $white;
+  font-weight: 900;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.designer {
+  margin: 0;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  color: $white;
+  font-weight: 400;
+}
+
+.img-block {
+  z-index: 1;
+  border: 10px solid white;
+  border-radius: 10px;
+}
+
+.header-right-block {
+  padding: 70px 40px 0 5px;
+}
+
+.about-me-block {
+  border: 2px solid $primary-color;
+  border-radius: 3px;
+  padding: 20px 30px 15px 30px;
+  width: 500px;
+}
+
+.about-me-title {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px auto;
+}
+
+.about-me {
+  margin: 0;
+  margin-left: 10px;
+}
+
+.contact-me-block {
+  width: 500px;
+  padding: 10px 30px 0px 30px;
+  margin-top: 9px;
+  background-color: $light-gray;
+}
+
+.contact-me-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 5px auto;
+}
+
+.contact-me {
+  margin: 0;
+  margin-left: 10px;
+}
+
+.contact-svg {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: $primary-color;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.contact-list {
+  list-style-type: square;
+}

@@ -1,0 +1,111 @@
+<div class="form-container">
+  <h2>Product Feedback</h2>
+  <p class="form-description">Use this reactive form to provide feedback about our products.</p>
+  
+  <app-alert *ngIf="error" [message]="error" type="danger"></app-alert>
+  <app-alert *ngIf="success" [message]="success" type="success"></app-alert>
+  
+  <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" *ngIf="!loading">
+    <div class="form-group">
+      <label for="name">Your Name</label>
+      <input 
+        type="text" 
+        id="name" 
+        formControlName="name" 
+        [ngClass]="{'is-invalid': feedbackForm.get('name')?.invalid && (feedbackForm.get('name')?.dirty || feedbackForm.get('name')?.touched)}"
+      >
+      <div class="invalid-feedback" *ngIf="feedbackForm.get('name')?.invalid && (feedbackForm.get('name')?.dirty || feedbackForm.get('name')?.touched)">
+        <span *ngIf="feedbackForm.get('name')?.errors?.['required']">Name is required</span>
+        <span *ngIf="feedbackForm.get('name')?.errors?.['minlength']">Name must be at least 2 characters</span>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input 
+        type="email" 
+        id="email" 
+        formControlName="email" 
+        [ngClass]="{'is-invalid': feedbackForm.get('email')?.invalid && (feedbackForm.get('email')?.dirty || feedbackForm.get('email')?.touched)}"
+      >
+      <div class="invalid-feedback" *ngIf="feedbackForm.get('email')?.invalid && (feedbackForm.get('email')?.dirty || feedbackForm.get('email')?.touched)">
+        <span *ngIf="feedbackForm.get('email')?.errors?.['required']">Email is required</span>
+        <span *ngIf="feedbackForm.get('email')?.errors?.['email']">Please enter a valid email</span>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="subject">Subject</label>
+      <select 
+        id="subject" 
+        formControlName="subject" 
+        [ngClass]="{'is-invalid': feedbackForm.get('subject')?.invalid && (feedbackForm.get('subject')?.dirty || feedbackForm.get('subject')?.touched)}"
+      >
+        <option value="">Select a subject</option>
+        <option value="product">Product Feedback</option>
+        <option value="website">Website Feedback</option>
+        <option value="support">Customer Support</option>
+        <option value="other">Other</option>
+      </select>
+      <div class="invalid-feedback" *ngIf="feedbackForm.get('subject')?.invalid && (feedbackForm.get('subject')?.dirty || feedbackForm.get('subject')?.touched)">
+        <span *ngIf="feedbackForm.get('subject')?.errors?.['required']">Please select a subject</span>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>Rating</label>
+      <div class="rating-container">
+        <div class="rating-options">
+          <div class="rating-option" *ngFor="let star of [1, 2, 3, 4, 5]">
+            <input 
+              type="radio" 
+              [id]="'rating-' + star" 
+              [value]="star" 
+              formControlName="rating"
+            >
+            <label [for]="'rating-' + star">{{ star }} Star</label>
+          </div>
+        </div>
+        <div class="invalid-feedback" *ngIf="feedbackForm.get('rating')?.invalid && (feedbackForm.get('rating')?.dirty || feedbackForm.get('rating')?.touched)">
+          <span *ngIf="feedbackForm.get('rating')?.errors?.['required']">Please select a rating</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="feedback">Your Feedback</label>
+      <textarea 
+        id="feedback" 
+        formControlName="feedback" 
+        rows="5"
+        [ngClass]="{'is-invalid': feedbackForm.get('feedback')?.invalid && (feedbackForm.get('feedback')?.dirty || feedbackForm.get('feedback')?.touched)}"
+      ></textarea>
+      <div class="invalid-feedback" *ngIf="feedbackForm.get('feedback')?.invalid && (feedbackForm.get('feedback')?.dirty || feedbackForm.get('feedback')?.touched)">
+        <span *ngIf="feedbackForm.get('feedback')?.errors?.['required']">Feedback is required</span>
+        <span *ngIf="feedbackForm.get('feedback')?.errors?.['minlength']">Feedback must be at least 20 characters</span>
+      </div>
+    </div>
+    
+    <div class="form-check">
+      <input 
+        type="checkbox" 
+        id="agreeTerms" 
+        formControlName="agreeTerms"
+        class="form-check-input"
+        [ngClass]="{'is-invalid': feedbackForm.get('agreeTerms')?.invalid && (feedbackForm.get('agreeTerms')?.dirty || feedbackForm.get('agreeTerms')?.touched)}"
+      >
+      <label for="agreeTerms" class="form-check-label">I agree to the terms and conditions</label>
+      <div class="invalid-feedback" *ngIf="feedbackForm.get('agreeTerms')?.invalid && (feedbackForm.get('agreeTerms')?.dirty || feedbackForm.get('agreeTerms')?.touched)">
+        <span *ngIf="feedbackForm.get('agreeTerms')?.errors?.['required']">You must agree to the terms</span>
+      </div>
+    </div>
+    
+    <div class="form-actions">
+      <button type="submit">Submit Feedback</button>
+    </div>
+  </form>
+  
+  <div *ngIf="loading" class="text-center">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+</div>

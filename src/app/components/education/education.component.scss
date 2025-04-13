@@ -1,0 +1,27 @@
+@import '../../../styles/variables';
+
+.education-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.education-title {
+  display: flex;
+  flex-direction: row;
+  padding: 5px auto;
+  align-items: center;
+}
+
+.education {
+  margin-right: 15px;
+}
+
+.education-line {
+  margin-right: 0;
+  margin-left: 15px;
+  width: 15px;
+}
+
+.row-reverse {
+  flex-direction: row-reverse;
+}

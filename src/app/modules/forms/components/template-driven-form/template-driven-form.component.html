@@ -1,0 +1,118 @@
+<div class="form-container">
+  <h2>Contact Us</h2>
+  <p class="form-description">Use this template-driven form to send us a message.</p>
+  
+  <app-alert *ngIf="error" [message]="error" type="danger"></app-alert>
+  <app-alert *ngIf="success" [message]="success" type="success"></app-alert>
+  
+  <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" *ngIf="!loading">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input 
+          type="text" 
+          id="firstName" 
+          name="firstName" 
+          [(ngModel)]="formData.firstName" 
+          required 
+          minlength="2"
+          #firstName="ngModel"
+          [ngClass]="{'is-invalid': firstName.invalid && (firstName.dirty || firstName.touched)}"
+        >
+        <div class="invalid-feedback" *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+          <span *ngIf="firstName.errors?.['required']">First name is required</span>
+          <span *ngIf="firstName.errors?.['minlength']">First name must be at least 2 characters</span>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input 
+          type="text" 
+          id="lastName" 
+          name="lastName" 
+          [(ngModel)]="formData.lastName" 
+          required 
+          minlength="2"
+          #lastName="ngModel"
+          [ngClass]="{'is-invalid': lastName.invalid && (lastName.dirty || lastName.touched)}"
+        >
+        <div class="invalid-feedback" *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+          <span *ngIf="lastName.errors?.['required']">Last name is required</span>
+          <span *ngIf="lastName.errors?.['minlength']">Last name must be at least 2 characters</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        [(ngModel)]="formData.email" 
+        required 
+        email
+        #email="ngModel"
+        [ngClass]="{'is-invalid': email.invalid && (email.dirty || email.touched)}"
+      >
+      <div class="invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">
+        <span *ngIf="email.errors?.['required']">Email is required</span>
+        <span *ngIf="email.errors?.['email']">Please enter a valid email</span>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="phone">Phone (optional)</label>
+      <input 
+        type="tel" 
+        id="phone" 
+        name="phone" 
+        [(ngModel)]="formData.phone" 
+        pattern="^\+?[0-9\s\-$$$$]+$"
+        #phone="ngModel"
+        [ngClass]="{'is-invalid': phone.invalid && (phone.dirty || phone.touched)}"
+      >
+      <div class="invalid-feedback" *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+        <span *ngIf="phone.errors?.['pattern']">Please enter a valid phone number</span>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea 
+        id="message" 
+        name="message" 
+        [(ngModel)]="formData.message" 
+        required 
+        minlength="10"
+        rows="5"
+        #message="ngModel"
+        [ngClass]="{'is-invalid': message.invalid && (message.dirty || message.touched)}"
+      ></textarea>
+      <div class="invalid-feedback" *ngIf="message.invalid && (message.dirty || message.touched)">
+        <span *ngIf="message.errors?.['required']">Message is required</span>
+        <span *ngIf="message.errors?.['minlength']">Message must be at least 10 characters</span>
+      </div>
+    </div>
+    
+    <div class="form-check">
+      <input 
+        type="checkbox" 
+        id="subscribe" 
+        name="subscribe" 
+        [(ngModel)]="formData.subscribe"
+        class="form-check-input"
+      >
+      <label for="subscribe" class="form-check-label">Subscribe to our newsletter</label>
+    </div>
+    
+    <div class="form-actions">
+      <button type="submit" [disabled]="contactForm.invalid">Send Message</button>
+    </div>
+  </form>
+  
+  <div *ngIf="loading" class="text-center">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+@import 'variables';
+
+body {
+  margin: 0;
+  font-family: $font-family;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+// Common styles for collapsible sections
+.collapsed {
+  display: none !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  opacity: 0 !important;
+  transition: all 0.3s ease !important;
+}
+
+// Import component styles
+@import '../app/components/header/header.component';
+@import '../app/components/job-experience/job-experience.component';
+@import '../app/components/skills/skills.component';
+@import '../app/components/references/references.component';
+@import '../app/components/education/education.component';
+@import '../app/components/hobbies/hobbies.component';
+@import '../app/components/shared/section-title/section-title.component';
+
+// Global utility classes
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 1rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mt-5 { margin-top: 3rem; }
+
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.mb-5 { margin-bottom: 3rem; }
+
+// Styles for toggle elements
+.sidebar-svg {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-left: 10px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.show-hide-main {
+  cursor: pointer;
+}
+
+// Transition styles for collapsible elements
+#about-me, #contact-info, #job-experience, #skills, #references, #education, #hobbies, .hobbies-info {
+  transition: all 0.3s ease;
+  //overflow: hidden;
+  max-height: 1000px;
+  height: auto;
+}

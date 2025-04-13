@@ -1,0 +1,79 @@
+<div class="settings">
+  <h2>System Settings</h2>
+  
+  <app-alert *ngIf="error" [message]="error" type="danger"></app-alert>
+  <app-alert *ngIf="success" [message]="success" type="success"></app-alert>
+  
+  <div *ngIf="loading" class="text-center">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+  
+  <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()" *ngIf="!loading">
+    <div class="form-group">
+      <label for="siteName">Site Name</label>
+      <input 
+        type="text" 
+        id="siteName" 
+        formControlName="siteName" 
+        [ngClass]="{'is-invalid': settingsForm.get('siteName')?.invalid && (settingsForm.get('siteName')?.dirty || settingsForm.get('siteName')?.touched)}"
+      >
+      <div class="invalid-feedback" *ngIf="settingsForm.get('siteName')?.invalid && (settingsForm.get('siteName')?.dirty || settingsForm.get('siteName')?.touched)">
+        <span *ngIf="settingsForm.get('siteName')?.errors?.['required']">Site name is required</span>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="siteDescription">Site Description</label>
+      <textarea 
+        id="siteDescription" 
+        formControlName="siteDescription" 
+        rows="3"
+        [ngClass]="{'is-invalid': settingsForm.get('siteDescription')?.invalid && (settingsForm.get('siteDescription')?.dirty || settingsForm.get('siteDescription')?.touched)}"
+      ></textarea>
+      <div class="invalid-feedback" *ngIf="settingsForm.get('siteDescription')?.invalid && (settingsForm.get('siteDescription')?.dirty || settingsForm.get('siteDescription')?.touched)">
+        <span *ngIf="settingsForm.get('siteDescription')?.errors?.['required']">Site description is required</span>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="contactEmail">Contact Email</label>
+      <input 
+        type="email" 
+        id="contactEmail" 
+        formControlName="contactEmail" 
+        [ngClass]="{'is-invalid': settingsForm.get('contactEmail')?.invalid && (settingsForm.get('contactEmail')?.dirty || settingsForm.get('contactEmail')?.touched)}"
+      >
+      <div class="invalid-feedback" *ngIf="settingsForm.get('contactEmail')?.invalid && (settingsForm.get('contactEmail')?.dirty || settingsForm.get('contactEmail')?.touched)">
+        <span *ngIf="settingsForm.get('contactEmail')?.errors?.['required']">Contact email is required</span>
+        <span *ngIf="settingsForm.get('contactEmail')?.errors?.['email']">Please enter a valid email</span>
+      </div>
+    </div>
+    
+    <div class="form-check">
+      <input 
+        type="checkbox" 
+        id="enableRegistration" 
+        formControlName="enableRegistration"
+        class="form-check-input"
+      >
+      <label for="enableRegistration" class="form-check-label">Enable User Registration</label>
+    </div>
+    
+    <div class="form-check">
+      <input 
+        type="checkbox" 
+        id="maintenanceMode" 
+        formControlName="maintenanceMode"
+        class="form-check-input"
+      >
+      <label for="maintenanceMode" class="form-check-label">Enable Maintenance Mode</label>
+    </div>
+    
+    <div class="form-actions">
+      <button type="submit" [disabled]="settingsForm.invalid || saving">
+        <span *ngIf="!saving">Save Settings</span>
+        <span *ngIf="saving">Saving...</span>
+      </button>
+    </div>
+  </form>
+</div>

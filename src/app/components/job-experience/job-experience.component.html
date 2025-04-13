@@ -1,0 +1,36 @@
+<div class="job-experience-block">
+  <div class="job-experience-title">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#d50821" class="bi bi-briefcase-fill" viewBox="0 0 16 16">
+      <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5 M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85z"/>
+    </svg>
+    <h3 class="job-experience">Job Experience</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#000000" class="bi bi-chevron-up sidebar-svg show-hide-main" viewBox="0 0 16 16" (click)="toggleSection('job-experience')" id="job-experience-icon">
+      <path fill-rule="evenodd" [attr.d]="toggleService.isCollapsed('job-experience') ? 'M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z' : 'M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z'"/>
+    </svg>
+  </div>
+
+  <div class="job-experience-line" id="job-experience" [ngClass]="{'collapsed': toggleService.isCollapsed('job-experience')}">
+    <div class="line">
+      <div class="white-small-block"></div>
+      <div class="white-small-block center-square"></div>
+      <div class="white-small-block"></div>
+    </div>
+    <div class="Company-block">
+      <div>
+        <h4 class="job-title">Web Designer</h4>
+        <div class="job-subtitle">Company Name <span class="job-period">2018 - present</span></div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+      </div>
+      <div class="middle-job-block">
+        <h4 class="job-title">Graphic Designer</h4>
+        <div class="job-subtitle">Company Name <span class="job-period">2015 - 2018</span></div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+      </div>
+      <div>
+        <h4 class="job-title">Marketing Manager</h4>
+        <div class="job-subtitle">Company Name <span class="job-period">2010 - 2015</span></div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+      </div>
+    </div>
+  </div>
+</div>

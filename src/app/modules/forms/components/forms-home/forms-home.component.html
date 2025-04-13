@@ -1,0 +1,15 @@
+<div class="forms-container">
+  <div class="forms-header">
+    <h1>Angular Forms Demo</h1>
+    <p>This section demonstrates both template-driven and reactive forms in Angular.</p>
+    
+    <div class="forms-nav">
+      <a [routerLink]="['template-driven']" routerLinkActive="active">Template-Driven Form</a>
+      <a [routerLink]="['reactive']" routerLinkActive="active">Reactive Form</a>
+    </div>
+  </div>
+  
+  <div class="forms-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

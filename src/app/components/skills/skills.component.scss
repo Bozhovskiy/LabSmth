@@ -1,0 +1,62 @@
+@import '../../../styles/variables';
+.skills-block {
+  margin-top: 78.5px;
+  border-top: 5px solid $medium-gray;
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  background-color: $light-gray;
+  clip-path: polygon(0 0, 75% 0, 100% 100%, 0 100%);
+}
+
+.skills-info {
+  margin-top: 10px;
+  margin-left: 45px;
+}
+
+.skills {
+  margin-left: 10px;
+  text-transform: uppercase;
+  color: $primary-color;
+  font-weight: 900;
+}
+
+.skills-list {
+  padding-left: 16px;
+  margin-top: 0px;
+  font-size: 18px;
+  height: 183px;
+}
+
+.skills-title {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  height: 6px;
+  background: #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 8px;
+  height: 8px;
+  background-color: $primary-color;
+  cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  background-color: gray;
+  border-radius: 5px;
+}
+
+input[type=range]::-ms-fill-lower {
+  background-color: $primary-color;
+}

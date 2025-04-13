@@ -1,0 +1,95 @@
+@import '../../../../../styles/variables';
+
+.settings {
+  h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: $secondary-color;
+  }
+  
+  form {
+    background-color: $white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+  }
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: $secondary-color;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+  }
+  
+  &.is-invalid {
+    border-color: #dc3545;
+  }
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  
+  .form-check-input {
+    width: auto;
+    margin-right: 0.5rem;
+  }
+  
+  .form-check-label {
+    margin-bottom: 0;
+  }
+}
+
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.form-actions {
+  margin-top: 2rem;
+  
+  button {
+    padding: 0.75rem 1.5rem;
+    background-color: $primary-color;
+    color: $white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+    
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.text-center {
+  text-align: center;
+}

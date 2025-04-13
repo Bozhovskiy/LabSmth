@@ -1,0 +1,27 @@
+<div *ngIf="loading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<app-alert *ngIf="error" [message]="error" type="danger"></app-alert>
+
+<div class="cv" *ngIf="!loading && !error">
+  <app-header [name]="userData.name" [surname]="userData.surname"></app-header>
+  
+  <div class="main-block">
+    <div class="main-left-block">
+      <app-job-experience></app-job-experience>
+      <app-skills></app-skills>
+    </div>
+    
+    <div class="right-main-part">
+      <app-references></app-references>
+      <div class="education-hobbies-red-block stick-down">
+        <div class="education-hobbies">
+          <app-education></app-education>
+          <app-hobbies [hobbies]="userData.hobbies"></app-hobbies>
+        </div>
+        <div class="red-aside"></div>
+      </div>
+    </div>
+  </div>
+</div>

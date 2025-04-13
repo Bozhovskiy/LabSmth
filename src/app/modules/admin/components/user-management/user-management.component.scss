@@ -1,0 +1,104 @@
+@import '../../../../../styles/variables';
+
+.user-management {
+  h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: $secondary-color;
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  background-color: $white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  p {
+    color: #666;
+    font-size: 1.1rem;
+  }
+}
+
+.user-table-container {
+  overflow-x: auto;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: $white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+  
+  th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: $secondary-color;
+  }
+  
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  
+  &.active {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  &.inactive {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  
+  button {
+    padding: 0.5rem 0.75rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-status {
+    background-color: #6c757d;
+    color: $white;
+    
+    &:hover {
+      background-color: darken(#6c757d, 10%);
+    }
+  }
+  
+  .btn-delete {
+    background-color: #dc3545;
+    color: $white;
+    
+    &:hover {
+      background-color: darken(#dc3545, 10%);
+    }
+  }
+}
+
+.text-center {
+  text-align: center;
+}

@@ -1,0 +1,47 @@
+<div class="user-management">
+  <h2>User Management</h2>
+  
+  <app-alert *ngIf="error" [message]="error" type="danger"></app-alert>
+  
+  <div *ngIf="loading" class="text-center">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+  
+  <div *ngIf="!loading && users.length === 0" class="empty-state">
+    <p>No users found.</p>
+  </div>
+  
+  <div *ngIf="!loading && users.length > 0" class="user-table-container">
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role }}</td>
+          <td>
+            <span class="status-badge" [ngClass]="user.active ? 'active' : 'inactive'">
+              {{ user.active ? 'Active' : 'Inactive' }}
+            </span>
+          </td>
+          <td class="actions">
+            <button class="btn-status" (click)="toggleUserStatus(user.id)">
+              {{ user.active ? 'Deactivate' : 'Activate' }}
+            </button>
+            <button class="btn-delete" (click)="deleteUser(user.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
